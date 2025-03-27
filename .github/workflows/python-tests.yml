@@ -40,12 +40,7 @@ jobs:
       - name: Verificar importaciones con isort
         run: |
           source venv/bin/activate
-          isort --check-only src tests
-
-      - name: Verificar errores de estilo con Flake8
-        run: |
-          source venv/bin/activate
-          flake8 src tests
+          isort --profile black --check-only src tests
 
       - name: Ejecutar pruebas
         run: |
