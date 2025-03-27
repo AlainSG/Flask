@@ -1,4 +1,5 @@
-from flask import Flask, render_template, jsonify, request, redirect, url_for, session
+from flask import Flask, render_template, jsonify
+from flask import request, redirect, url_for, session
 
 
 app = Flask(__name__)
@@ -58,29 +59,28 @@ def logout():
 @app.route('/suma/<int:a>/<int:b>')
 def suma(a, b):
     # curl -X GET http://127.0.0.1:5000/suma/10/2
-    return jsonify({'Resultado': a+b}), 400
+    return jsonify({'Resultado': a+b}), 200
 
 
 @app.route('/resta/<int:a>/<int:b>')
 def resta(a, b):
     # curl -X GET http://127.0.0.1:5000/resta/10/2
-    return jsonify({'Resultado': a-b}), 400
+    return jsonify({'Resultado': a-b}), 200
 
 
 @app.route('/multiplicacion/<int:a>/<int:b>')
 def nultiplicacion(a, b):
-    #curl -X GET http://127.0.0.1:5000/multiplicacion/10/2
-    return jsonify({'Resultado': a*b}), 400
+    # curl -X GET http://127.0.0.1:5000/multiplicacion/10/2
+    return jsonify({'Resultado': a*b}), 200
 
 
 @app.route('/division/<int:a>/<int:b>')
 def division(a, b):
     # curl -X GET http://127.0.0.1:5000/division/10/2
     if b == 0:
-        return jsonify({"error": "No se puede dividir por cero"}), 400
-    return jsonify({"resultado": float(a / b)})
+        return jsonify({"error": "No se puede dividir por cero"}), 200
+    return jsonify({"Resultado": float(a / b)})
 
 
 if __name__ == '__main__':
     app.run(debug=True)
-
