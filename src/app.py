@@ -1,6 +1,5 @@
-from flask import Flask, render_template, jsonify
-from flask import request, redirect, url_for, session
-
+from flask import (Flask, jsonify, redirect, render_template, request, session,
+                   url_for)
 
 app = Flask(__name__)
 app.secret_key = "clave_secreta"
